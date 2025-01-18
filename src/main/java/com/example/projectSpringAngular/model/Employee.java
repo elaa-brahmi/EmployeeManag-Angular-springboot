@@ -3,54 +3,76 @@ package com.example.projectSpringAngular.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="employees")
+@Table(name = "employee")
 public class Employee {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column(name="first_name")
-    private String firstName;
-    @Column(name="last_name")
-    private String lastName;
-    @Column(name="email_id")
-    private String emailId;
-    public Employee(){
-    }
-    public Employee(String firstName, String lastName, String emailId) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.emailId = emailId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer employeeId;
+    private String employeeName;
+    private String employeeContactNumber;
+    private String employeeAddress;
+    private String employeeGender;
+    private String employeeDepartment;
+    private String employeeSkills;
+
+    public Employee() {
+
     }
 
-    public long getId() {
-        return id;
+    public Integer getEmployeeId() {
+        return employeeId;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setEmployeeId(Integer employeeId) {
+        this.employeeId = employeeId;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getEmployeeName() {
+        return employeeName;
     }
 
-    public String getEmailId() {
-        return emailId;
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getEmployeeContactNumber() {
+        return employeeContactNumber;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setEmployeeContactNumber(String employeeContactNumber) {
+        this.employeeContactNumber = employeeContactNumber;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public String getEmployeeAddress() {
+        return employeeAddress;
     }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    public void setEmployeeAddress(String employeeAddress) {
+        this.employeeAddress = employeeAddress;
+    }
+
+    public String getEmployeeGender() {
+        return employeeGender;
+    }
+
+    public void setEmployeeGender(String employeeGender) {
+        this.employeeGender = employeeGender;
+    }
+
+    public String getEmployeeDepartment() {
+        return employeeDepartment;
+    }
+
+    public void setEmployeeDepartment(String employeeDepartment) {
+        this.employeeDepartment = employeeDepartment;
+    }
+
+    public String getEmployeeSkills() {
+        return employeeSkills;
+    }
+
+    public void setEmployeeSkills(String employeeSkills) {
+        this.employeeSkills = employeeSkills;
     }
 }
