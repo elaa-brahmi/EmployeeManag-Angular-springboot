@@ -17,6 +17,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {MatButtonModule} from '@angular/material/button';
     AppRoutingModule,
     MatCheckboxModule,
     MatButtonModule,
+    FormsModule,
     MatDividerModule,
     MatRadioModule,
     HttpClientModule,
