@@ -1,60 +1,67 @@
 <div class="container">
   <div class="card p-5 mt-5">
-    <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
+    <form action="">
+      <mat-form-field appearance="outline">
+        <mat-label>Employee Id</mat-label>
+        <input matInput placeholder="Placeholder" name="employeeId" [(ngModel)]="employee.employeeId"><!--bind the data from employee instance in employee componenet .ts-->
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Employee name</mat-label>
+        <input matInput placeholder="Placeholder"  name="employeeName" [(ngModel)]="employee.employeeName">
+        <mat-icon matSuffix>person</mat-icon><!--write the name of any icon from fonts.google.com without downloading the icon -->
 
-    <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Select an option</mat-label>
-      <mat-select>
-        <mat-option>None</mat-option>
-        <mat-option value="option1">Option 1</mat-option>
-        <mat-option value="option2">Option 2</mat-option>
-        <mat-option value="option3">Option 3</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <div>
-    <label>Gender</label>
-    <mat-radio-group aria-label="Select an option">
-      <mat-radio-button value="1">H</mat-radio-button>
-      <mat-radio-button value="2">F</mat-radio-button>
-    </mat-radio-group></div>
-<div>
-  <label for="skills">skills</label>
-  <section class="example-section">
-    <mat-checkbox class="example-margin" >Checked</mat-checkbox>
-    <mat-checkbox class="example-margin" >Indeterminate</mat-checkbox>
-  </section>
-</div>
-<mat-divider></mat-divider>
-<div class="text-center mt-3 ">
-  <button mat-raised-button class="m-2">clear</button>
-<button mat-raised-button color="primary" class="m-2">save</button>
+      <mat-form-field appearance="outline">
+        <mat-label> Employee adress</mat-label>
+        <input matInput placeholder="Placeholder"  name="employeeAddress" [(ngModel)]="employee.employeeAddress">
+        <mat-icon matSuffix>shome_pin</mat-icon>
 
-</div>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Employee Contact Number</mat-label>
+        <input matInput placeholder="Placeholder"  name="employeeContactNumber" [(ngModel)]="employee.employeeContactNumber">
+        <mat-icon matSuffix>phone_enabled</mat-icon>
+
+      </mat-form-field>
+
+
+
+      <mat-form-field>
+        <mat-label>choose your department</mat-label>
+        <mat-select>
+          <mat-option>None</mat-option>
+          <mat-option value="it">IT</mat-option>
+          <mat-option value="network">Network</mat-option>
+          <mat-option value="finance">Finance</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <label>Gender</label>
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="m">M</mat-radio-button>
+          <mat-radio-button value="f">F</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div>
+        <label for="skills">skills</label>
+        <section class="example-section">
+          <mat-checkbox class="example-margin">java</mat-checkbox>
+          <mat-checkbox class="example-margin">angular</mat-checkbox>
+          <mat-checkbox class="example-margin">spring boot</mat-checkbox>
+
+        </section>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="text-center mt-3 ">
+        <button mat-raised-button class="m-2">clear</button>
+        <button mat-raised-button color="primary" class="m-2">save</button>
+
+      </div>
+    </form>
   </div>
 </div>
