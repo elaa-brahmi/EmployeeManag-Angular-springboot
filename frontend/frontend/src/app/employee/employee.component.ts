@@ -3,28 +3,38 @@ import { employee } from '../employee.model';
 import { NgForm } from '@angular/forms';
 import { EmployeeService } from '../employee.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  employee:employee={
-    employeeId:null,
-    employeeName:'',
-    employeeAddress:'',
-    employeeContactNumber:'',
-    employeeDepartment:'',
-    employeeGender:'',
-    employeeSkills:''
-  };
+employee:any;
+isCreateEmployee:boolean=true;
   skills:string[]=[];
-  constructor( private employeeService: EmployeeService,private router:Router){}
+  constructor( private employeeService: EmployeeService,private router:Router ,private activatedRoute:ActivatedRoute ){}
   ngOnInit(): void {
+    //Accessing Resolved Data from employee resolver .ts: In the EmployeeComponent,
+    //  the resolved data can be accessed using ActivatedRoute:
+    this.employee=this.activatedRoute.snapshot.data['employee'];
+    console.log(this.employee);
+    if(this.employee && this.employee.employeeId>0){
+      this.isCreateEmployee=false;
+      if(this.employee.employeeSkills!=''){
+        //update the array if skills are present
+        this.skills=[];
+        this.skills=this.employee.employeeSkills.split(',');
+      }
+    }
+    else{
+      this.isCreateEmployee=true;
+    }
   }
 
   saveEmployee(employeeForm:NgForm):void{
+    // check if it's put api or post api
+    if(this.isCreateEmployee){
     this.employeeService.saveEmployee(this.employee).subscribe({
       next:(res:employee)=>{ // callback for success function
         console.log(res);
@@ -38,7 +48,21 @@ export class EmployeeComponent implements OnInit {
       error:(err:HttpErrorResponse)=>{
         console.log(err);
       }
-    })
+    })}
+    else{
+      this.employeeService.update(this.employee).subscribe(
+        {
+          next:(res:employee)=>{
+        this.router.navigate(["/employee-list"]);
+
+          },
+          error:(err:HttpErrorResponse)=>{
+            console.log(err);
+          }
+        }
+      )
+
+    }
   }
   selectGender(gender:string):void{
     this.employee.employeeGender=gender;
