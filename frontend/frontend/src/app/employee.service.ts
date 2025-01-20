@@ -14,4 +14,11 @@ export class EmployeeService {
   public saveEmployee(employee: employee): Observable<employee>{
    return  this.httpClient.post<employee>(`${this.api}/save/employees`,employee);
   }
+  public getEmployees():Observable<employee[]>{
+    return this.httpClient.get<employee []>(`${this.api}/get/employees`);
+
+  }
+  public deleteById(id:number){
+    return  this.httpClient.delete(`${this.api}/delete/employee/${id}`);
+  }
 }
