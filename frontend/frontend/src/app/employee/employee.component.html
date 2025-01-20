@@ -1,12 +1,15 @@
 <div class="container">
-  <div class="card p-5 mt-5">
-    <form action="">
-      <mat-form-field appearance="outline">
+  <div class="d-flex">
+  <button mat-raised-button class="ms-auto" routerLink="/employee-list">add new employee</button>
+</div>
+  <div class="card p-5 mt-2">
+    <form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+     <!-- <mat-form-field appearance="outline">
         <mat-label>Employee Id</mat-label>
-        <input matInput placeholder="Placeholder" name="employeeId" [(ngModel)]="employee.employeeId"><!--bind the data from employee instance in employee componenet .ts-->
+        <input matInput placeholder="Placeholder" name="employeeId" disabled>
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
 
-      </mat-form-field>
+      </mat-form-field>-->
 
       <mat-form-field appearance="outline">
         <mat-label>Employee name</mat-label>
@@ -33,7 +36,7 @@
 
       <mat-form-field>
         <mat-label>choose your department</mat-label>
-        <mat-select>
+        <mat-select name="employee Department"  [(ngModel)]="employee.employeeDepartment">
           <mat-option>None</mat-option>
           <mat-option value="it">IT</mat-option>
           <mat-option value="network">Network</mat-option>
@@ -43,16 +46,25 @@
       <div>
         <label>Gender</label>
         <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="m">M</mat-radio-button>
-          <mat-radio-button value="f">F</mat-radio-button>
+          <!--add events and define the functions inside employee componenets.ts-->
+          <mat-radio-button (click)="selectGender('M')" value="m">M</mat-radio-button>
+          <mat-radio-button (click)="selectGender('F')" value="f">F</mat-radio-button>
         </mat-radio-group>
       </div>
+
+      <mat-form-field appearance="outline" class="mt-2">
+        <mat-label> Employee skills</mat-label>
+        <input matInput placeholder="Employee skills"  name="employeeSkills" [(ngModel)]="employee.employeeSkills" disabled>
+        <mat-icon matSuffix>menu_book</mat-icon>
+
+      </mat-form-field>
+
       <div>
         <label for="skills">skills</label>
         <section class="example-section">
-          <mat-checkbox class="example-margin">java</mat-checkbox>
-          <mat-checkbox class="example-margin">angular</mat-checkbox>
-          <mat-checkbox class="example-margin">spring boot</mat-checkbox>
+          <mat-checkbox (change)="onSkillschanges($event)" value="java" class="example-margin">java</mat-checkbox>
+          <mat-checkbox (change)="onSkillschanges($event)" value="angular" class="example-margin">angular</mat-checkbox>
+          <mat-checkbox (change)="onSkillschanges($event)" value= "spring boot" class="example-margin">spring boot</mat-checkbox>
 
         </section>
       </div>
