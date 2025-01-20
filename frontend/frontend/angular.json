@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+
             "outputPath": "dist/frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -33,6 +34,8 @@
 
             ]
           },
+
+
           "configurations": {
             "production": {
               "budgets": [
@@ -61,6 +64,10 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options":{
+          "proxyConfig": "./proxy.conf.json"
+
+          },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
