@@ -9,20 +9,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:4200")
+
+
 @RequestMapping("/api/")
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
+    @PostMapping("/save/employees")
+    public Employee saveEmployee(@RequestBody Employee employee){
+        return employeeService.saveEmployee(employee);
+    }
     //get all employees
     @GetMapping("/get/employees")
     public List<Employee> getAllEmployees(){
        return employeeService.getEmployees();
 
     }
-    @PostMapping("/save/employees")
-    public Employee saveEmployee(@RequestBody Employee employee){
-        return employeeService.saveEmployee(employee);
-    }
+
     @GetMapping("/get/employee/{id}")
     public Employee getEmployee(@PathVariable int id){
         return employeeService.getEmployee(id);
