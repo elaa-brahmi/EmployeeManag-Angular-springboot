@@ -9,11 +9,23 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer employeeId;
+    @Column(nullable = false)
+    
     private String employeeName;
+    @Column(nullable = false)
+
     private String employeeContactNumber;
+    @Column(nullable = false)
+
     private String employeeAddress;
+    @Column(nullable = false)
+
     private String employeeGender;
+    @Column(nullable = false)
+
     private String employeeDepartment;
+    @Column(nullable = false)
+
     private String employeeSkills;
 
     public Employee() {
