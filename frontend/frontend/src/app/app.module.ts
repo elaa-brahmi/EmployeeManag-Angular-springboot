@@ -19,7 +19,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
-
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
   ],
   imports: [
     BrowserModule,
+    MatTableModule,
     AppRoutingModule,
     MatCheckboxModule,
     MatButtonModule,
