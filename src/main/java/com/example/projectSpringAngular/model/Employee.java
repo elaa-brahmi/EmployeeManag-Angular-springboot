@@ -10,7 +10,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer employeeId;
     @Column(nullable = false)
-    
+
     private String employeeName;
     @Column(nullable = false)
 
